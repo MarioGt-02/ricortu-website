@@ -1,110 +1,189 @@
-const highlights = [
-  "Digital strategy",
-  "Brand systems",
-  "Product experiences"
+import type { Metadata } from "next";
+import Link from "next/link";
+import { AppPreview } from "@/components/app-preview";
+import { WaitlistLink } from "@/components/waitlist-link";
+import { WaitlistForm } from "@/components/waitlist-form";
+import { createMetadata } from "@/lib/site";
+
+export const metadata: Metadata = createMetadata({
+  title: "RICORTU | Turn Travels Into a Private Map of Your Life",
+  description:
+    "RICORTU is a private travel memory app for collecting visited cities, saved destinations, countries, and personal travel history in a calm atlas.",
+  path: "/"
+});
+
+const values = [
+  ["Collect visited cities", "Mark the places you have lived, loved, passed through, and remembered."],
+  ["Build your personal atlas", "Watch countries and cities gather into a map that belongs only to you."],
+  ["Keep memories attached to places", "Save quiet notes, dates, and fragments without turning them into a feed."],
+  ["Save future destinations", "Keep the places you dream about close, without confusing them with where you have been."]
+];
+
+const useCases = [
+  "Students abroad",
+  "Frequent travelers",
+  "Quiet memory keepers",
+  "People who love maps and personal archives"
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <header className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6">
-        <a className="text-xl font-semibold tracking-wide" href="/">
-          RICORTU
-        </a>
-        <nav className="hidden items-center gap-8 text-sm font-medium text-ink/70 sm:flex">
-          <a className="transition hover:text-ink" href="#work">
-            Work
-          </a>
-          <a className="transition hover:text-ink" href="#studio">
-            Studio
-          </a>
-          <a className="transition hover:text-ink" href="#contact">
-            Contact
-          </a>
-        </nav>
-      </header>
+    <main>
+      <section
+        aria-labelledby="home-hero-title"
+        className="relative overflow-hidden px-5 py-16 sm:px-8 lg:py-24"
+      >
+        <div aria-hidden="true" className="absolute inset-0 map-grid opacity-70" />
+        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="relative">
+            <p className="museum-label text-gold">A private atlas for your travels</p>
+            <h1
+              className="mt-6 max-w-4xl font-serif text-5xl leading-[1.02] text-graphite sm:text-6xl lg:text-7xl"
+              id="home-hero-title"
+            >
+              Turn your travels into a private map of your life.
+            </h1>
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-graphite/70">
+              Collect the cities you’ve visited, save the places you dream
+              about, and watch your world slowly light up.
+            </p>
+            <ul className="mt-7 grid max-w-2xl gap-3 text-sm text-graphite/65 sm:grid-cols-3">
+              {["No GPS tracking", "No public feed", "Private by default"].map(
+                (item) => (
+                  <li className="border-t border-graphite/15 pt-3" key={item}>
+                    {item}
+                  </li>
+                )
+              )}
+            </ul>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <WaitlistLink className="button-primary button-hero">
+                Join the waitlist
+              </WaitlistLink>
+              <Link className="button-secondary" href="/app">
+                Explore the concept
+              </Link>
+            </div>
+          </div>
+          <AppPreview />
+        </div>
+      </section>
 
-      <section className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-20 md:grid-cols-[1.2fr_0.8fr] md:items-end md:py-28">
-        <div>
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.24em] text-signal">
-            Official Website
-          </p>
-          <h1 className="max-w-4xl text-5xl font-semibold leading-tight text-ink sm:text-6xl md:text-7xl">
-            RICORTU builds sharp digital identities for ambitious brands.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-ink/70">
-            We shape websites, brand systems, and product experiences that feel
-            clear, confident, and ready for growth.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-white transition hover:bg-ink/90"
-              href="#contact"
-            >
-              Start a Project
-            </a>
-            <a
-              className="rounded-full border border-ink/20 px-6 py-3 text-sm font-semibold text-ink transition hover:border-ink/50"
-              href="#work"
-            >
-              View Focus
-            </a>
+      <section aria-labelledby="problem-title" className="section-band">
+        <div className="content-grid">
+          <p className="museum-label">The problem</p>
+          <div>
+            <h2 className="section-title" id="problem-title">
+              Travel memories rarely stay in one place.
+            </h2>
+            <p className="section-copy mt-5">
+              They scatter across photos, notes, map pins, receipts, messages,
+              and forgotten apps. The shape of a life in motion becomes hard to
+              see, even when the places still matter.
+            </p>
           </div>
         </div>
+      </section>
 
-        <div className="rounded-[2rem] bg-white p-6 shadow-sm ring-1 ring-ink/10">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-ember">
-            Focus
-          </p>
-          <div className="mt-8 space-y-5">
-            {highlights.map((item) => (
-              <div
-                className="border-b border-ink/10 pb-5 text-2xl font-semibold last:border-0 last:pb-0"
-                key={item}
-              >
-                {item}
-              </div>
+      <section aria-labelledby="value-title" className="px-5 py-20 sm:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl">
+            <p className="museum-label">What RICORTU keeps</p>
+            <h2 className="section-title mt-4" id="value-title">
+              A private archive for visited cities, countries, and collected
+              territories.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-4 md:grid-cols-2">
+            {values.map(([title, text]) => (
+              <article className="quiet-card" key={title}>
+                <h3 className="font-serif text-3xl">{title}</h3>
+                <p className="mt-4 leading-7 text-graphite/68">{text}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section
-        className="border-y border-ink/10 bg-white px-6 py-16"
-        id="work"
-      >
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
-          {[
-            ["01", "Strategy", "Positioning, messaging, and launch planning."],
-            ["02", "Design", "Visual systems for websites and campaigns."],
-            ["03", "Build", "Fast, maintainable websites with modern tooling."]
-          ].map(([number, title, description]) => (
-            <article key={number}>
-              <p className="text-sm font-bold text-signal">{number}</p>
-              <h2 className="mt-4 text-2xl font-semibold">{title}</h2>
-              <p className="mt-3 leading-7 text-ink/70">{description}</p>
-            </article>
-          ))}
+      <section aria-labelledby="difference-title" className="section-band">
+        <div className="mx-auto max-w-7xl">
+          <h2 className="sr-only" id="difference-title">
+            What makes RICORTU different
+          </h2>
+          <div className="grid gap-6 md:grid-cols-4">
+            {["Not a navigation app.", "Not a travel guide.", "Not a social network."].map(
+              (line) => (
+                <p className="museum-label border-t border-graphite/15 pt-5" key={line}>
+                  {line}
+                </p>
+              )
+            )}
+            <p className="text-xl leading-8 text-graphite">
+              RICORTU is a private archive for the places that became part of
+              you.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 py-16" id="studio">
-        <h2 className="text-3xl font-semibold">Built with intent.</h2>
-        <p className="mt-4 max-w-3xl leading-8 text-ink/70">
-          This starter site uses Next.js, TypeScript, and Tailwind CSS, giving
-          RICORTU a clean base for future content, case studies, and contact
-          workflows.
-        </p>
+      <section aria-labelledby="use-cases-title" className="px-5 py-20 sm:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="museum-label">For people who collect quietly</p>
+          <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl" id="use-cases-title">
+            Made for travelers who want memory, not performance.
+          </h2>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {useCases.map((item) => (
+              <article className="quiet-card min-h-44" key={item}>
+                <span aria-hidden="true" className="inline-block h-2 w-2 rounded-full bg-gold" />
+                <h3 className="mt-8 font-serif text-2xl">{item}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <footer className="bg-ink px-6 py-10 text-white" id="contact">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-2xl font-semibold">RICORTU</p>
-          <a className="text-sm font-semibold text-white/80" href="mailto:hello@ricortu.com">
-            hello@ricortu.com
-          </a>
+      <section aria-labelledby="preview-title" className="section-band" id="preview">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 max-w-3xl">
+            <p className="museum-label">App preview</p>
+            <h2 className="section-title mt-4" id="preview-title">
+              Map, city detail, wishlist, stats, and share cards in one calm
+              system.
+            </h2>
+          </div>
+          <AppPreview />
         </div>
-      </footer>
+      </section>
+
+      <section aria-labelledby="seo-title" className="px-5 py-20 sm:px-8">
+        <div className="mx-auto max-w-4xl">
+          <p className="museum-label">Search intent</p>
+          <h2 className="section-title mt-4" id="seo-title">
+            A travel memory app for a quieter record.
+          </h2>
+          <p className="section-copy mt-6">
+            RICORTU is designed for people looking for a personal travel map, a
+            visited cities tracker, a travel archive app, a countries visited
+            tracker, or a private travel journal app that keeps memory close
+            without turning travel into performance.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="waitlist-title" className="px-5 pb-24 sm:px-8" id="waitlist">
+        <div className="mx-auto max-w-7xl rounded-[2rem] bg-slate px-6 py-14 text-ivory sm:px-10">
+          <p className="museum-label text-gold">Early access</p>
+          <h2 className="mt-5 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl" id="waitlist-title">
+            Start building the map of your life.
+          </h2>
+          <p className="mt-4 max-w-2xl leading-7 text-ivory/72">
+            Join the early access list for a private travel archive that is not
+            a guide, a social feed, or a location tracker.
+          </p>
+          <WaitlistForm />
+        </div>
+      </section>
     </main>
   );
 }

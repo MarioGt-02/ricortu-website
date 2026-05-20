@@ -22,6 +22,9 @@ pnpm-debug.log*
 .env
 .env*.local
 
+# local waitlist fallback
+.data
+
 # vercel
 .vercel
 

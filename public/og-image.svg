@@ -1,0 +1,17 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F7F3EA"/>
+  <path d="M0 120H1200M0 240H1200M0 360H1200M0 480H1200M120 0V630M240 0V630M360 0V630M480 0V630M600 0V630M720 0V630M840 0V630M960 0V630M1080 0V630" stroke="#D8D6CC" stroke-width="1"/>
+  <rect x="72" y="72" width="1056" height="486" rx="34" fill="#FFFDF7" fill-opacity="0.76" stroke="#1C252D" stroke-opacity="0.13"/>
+  <circle cx="304" cy="278" r="8" fill="#72899A"/>
+  <circle cx="304" cy="278" r="31" stroke="#72899A" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="488" cy="344" r="8" fill="#72899A"/>
+  <circle cx="488" cy="344" r="31" stroke="#72899A" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="704" cy="244" r="8" fill="#72899A"/>
+  <circle cx="704" cy="244" r="31" stroke="#72899A" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="856" cy="378" r="8" fill="#C49A4A"/>
+  <circle cx="856" cy="378" r="31" stroke="#C49A4A" stroke-opacity="0.24" stroke-width="2"/>
+  <text x="120" y="165" fill="#C49A4A" font-family="Arial, sans-serif" font-size="18" letter-spacing="5">PERSONAL ATLAS</text>
+  <text x="120" y="270" fill="#1C252D" font-family="Georgia, serif" font-size="72">RICORTU</text>
+  <text x="120" y="348" fill="#1C252D" fill-opacity="0.76" font-family="Arial, sans-serif" font-size="32">Turn your travels into a private map of your life.</text>
+  <text x="120" y="442" fill="#1C252D" fill-opacity="0.58" font-family="Arial, sans-serif" font-size="24">My world is slowly lighting up.</text>
+</svg>
