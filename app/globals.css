@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #101820;
+  --color-signal: #00a676;
+  --color-ember: #ff6b35;
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f7f8f5;
+  color: #101820;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
