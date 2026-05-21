@@ -4,7 +4,19 @@ import { useState } from "react";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
-export function WaitlistForm() {
+type WaitlistFormProps = {
+  labels: {
+    email: string;
+    error: string;
+    placeholder: string;
+    privacy: string;
+    submit: string;
+    submitting: string;
+    success: string;
+  };
+};
+
+export function WaitlistForm({ labels }: WaitlistFormProps) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<SubmitState>("idle");
   const [message, setMessage] = useState("");
@@ -22,21 +34,21 @@ export function WaitlistForm() {
         },
         method: "POST"
       });
-      const result = (await response.json()) as { message?: string };
+      await response.json();
 
       if (!response.ok) {
-        throw new Error(result.message || "Unable to join the waitlist.");
+        throw new Error(labels.error);
       }
 
       setState("success");
       setEmail("");
-      setMessage(result.message || "You are on the waitlist.");
+      setMessage(labels.success);
     } catch (error) {
       setState("error");
       setMessage(
         error instanceof Error
           ? error.message
-          : "Something went wrong. Please try again."
+          : labels.error
       );
     }
   }
@@ -47,7 +59,7 @@ export function WaitlistForm() {
     <div className="mt-8 max-w-xl">
       <form className="flex flex-col gap-3 sm:flex-row" onSubmit={handleSubmit}>
         <label className="sr-only" htmlFor="waitlist-email">
-          Email address
+          {labels.email}
         </label>
         <input
           autoComplete="email"
@@ -55,18 +67,17 @@ export function WaitlistForm() {
           id="waitlist-email"
           name="email"
           onChange={(event) => setEmail(event.target.value)}
-          placeholder="you@example.com"
+          placeholder={labels.placeholder}
           required
           type="email"
           value={email}
         />
         <button className="button-light" disabled={isSubmitting} type="submit">
-          {isSubmitting ? "Joining..." : "Join the waitlist"}
+          {isSubmitting ? labels.submitting : labels.submit}
         </button>
       </form>
       <p className="mt-4 text-sm leading-6 text-ivory/60">
-        We will only use your email for RICORTU early access updates. No public
-        profile, no GPS tracking, no shared travel feed.
+        {labels.privacy}
       </p>
       <div aria-live="polite" className="mt-4 min-h-6">
         {message ? (

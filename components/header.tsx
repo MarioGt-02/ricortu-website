@@ -1,18 +1,30 @@
-import Link from "next/link";
+import { LanguageSwitcher } from "@/components/language-switcher";
 import { WaitlistLink } from "@/components/waitlist-link";
+import { Link, type Locale } from "@/i18n/routing";
 
-const navItems = [
-  { href: "/app", label: "Product" },
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Journal" },
-  { href: "/privacy", label: "Privacy" }
-];
+type HeaderProps = {
+  locale: Locale;
+  labels: {
+    join: string;
+    language: string;
+    privacy: string;
+    product: string;
+    skip: string;
+    terms: string;
+  };
+};
 
-export function Header() {
+export function Header({ labels, locale }: HeaderProps) {
+  const navItems = [
+    { href: "/", label: labels.product },
+    { href: "/privacy", label: labels.privacy },
+    { href: "/terms", label: labels.terms }
+  ];
+
   return (
     <header className="border-b border-graphite/10 bg-ivory/90 backdrop-blur">
       <a className="skip-link" href="#main-content">
-        Skip to content
+        {labels.skip}
       </a>
       <div className="mx-auto flex min-h-20 w-full max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link
@@ -32,12 +44,15 @@ export function Header() {
               href={item.href}
               key={item.href}
             >
-              {item.label}
-            </Link>
-          ))}
+            {item.label}
+          </Link>
+        ))}
         </nav>
-        <WaitlistLink className="nav-waitlist-cta">
-          Join waitlist
+        <div className="hidden md:block">
+          <LanguageSwitcher label={labels.language} locale={locale} />
+        </div>
+        <WaitlistLink className="nav-waitlist-cta" href={`/${locale}#waitlist`}>
+          {labels.join}
         </WaitlistLink>
       </div>
       <nav
@@ -50,9 +65,10 @@ export function Header() {
             href={item.href}
             key={item.href}
           >
-            {item.label}
-          </Link>
-        ))}
+          {item.label}
+        </Link>
+      ))}
+        <LanguageSwitcher label={labels.language} locale={locale} />
       </nav>
     </header>
   );

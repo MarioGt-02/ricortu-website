@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { locales, type Locale } from "@/i18n/routing";
 
 export const siteConfig = {
   name: "RICORTU",
-  url: "https://ricortu.com",
+  url: "https://ricortu.app",
   description:
     "RICORTU is a private travel memory app for collecting visited cities, countries, and future destinations in a personal map of your life.",
   email: "hello@ricortu.com"
@@ -34,6 +35,57 @@ export function createMetadata({
       siteName: siteConfig.name,
       type: "website",
       locale: "en_US",
+      images: [
+        {
+          url: "/og-image.svg",
+          width: 1200,
+          height: 630,
+          alt: "RICORTU private travel memory app preview"
+        }
+      ]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/og-image.svg"]
+    }
+  };
+}
+
+export function createLocalizedMetadata({
+  description,
+  locale,
+  path = "",
+  title
+}: MetadataOptions & { locale: Locale }): Metadata {
+  const normalizedPath = path ? `/${path.replace(/^\/+/, "")}` : "";
+  const canonicalPath = `/${locale}${normalizedPath}`;
+  const canonical = new URL(canonicalPath, siteConfig.url).toString();
+  const languages = Object.fromEntries(
+    locales.map((item) => [
+      item,
+      new URL(`/${item}${normalizedPath}`, siteConfig.url).toString()
+    ])
+  );
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+      languages: {
+        ...languages,
+        "x-default": new URL(`/en${normalizedPath}`, siteConfig.url).toString()
+      }
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: siteConfig.name,
+      type: "website",
+      locale,
       images: [
         {
           url: "/og-image.svg",

@@ -5,9 +5,14 @@ import Link from "next/link";
 type WaitlistLinkProps = {
   children: React.ReactNode;
   className: string;
+  href?: string;
 };
 
-export function WaitlistLink({ children, className }: WaitlistLinkProps) {
+export function WaitlistLink({
+  children,
+  className,
+  href = "/#waitlist"
+}: WaitlistLinkProps) {
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
     const section = document.getElementById("waitlist");
     const input = document.getElementById("waitlist-email");
@@ -26,7 +31,7 @@ export function WaitlistLink({ children, className }: WaitlistLinkProps) {
   }
 
   return (
-    <Link className={className} href="/#waitlist" onClick={handleClick}>
+    <Link className={className} href={href} onClick={handleClick}>
       {children}
     </Link>
   );
