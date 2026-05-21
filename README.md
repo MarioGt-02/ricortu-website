@@ -50,4 +50,6 @@ create table waitlist (
 ```
 
 Without Supabase environment variables, local development submissions are
-stored in `.data/waitlist.jsonl`.
+stored in `.data/waitlist.jsonl`. In production without Supabase, the fallback
+uses the server temporary directory and should only be treated as a smoke test,
+not permanent storage.

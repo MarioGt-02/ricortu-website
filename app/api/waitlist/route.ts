@@ -1,4 +1,6 @@
 import { appendFile, mkdir } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { NextResponse } from "next/server";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -49,9 +51,14 @@ export async function POST(request: Request) {
         );
       }
     } else {
-      await mkdir(".data", { recursive: true });
+      const storageDir =
+        process.env.NODE_ENV === "production"
+          ? join(tmpdir(), "ricortu")
+          : ".data";
+
+      await mkdir(storageDir, { recursive: true });
       await appendFile(
-        ".data/waitlist.jsonl",
+        join(storageDir, "waitlist.jsonl"),
         `${JSON.stringify(submission)}\n`,
         "utf8"
       );
@@ -60,9 +67,14 @@ export async function POST(request: Request) {
     return NextResponse.json({
       message: "You are on the waitlist. We will be in touch quietly."
     });
-  } catch {
+  } catch (error) {
+    console.error("Waitlist submission failed", error);
+
     return NextResponse.json(
-      { message: "Unable to join the waitlist right now." },
+      {
+        message:
+          "Unable to join the waitlist right now. Please check waitlist storage configuration."
+      },
       { status: 500 }
     );
   }
