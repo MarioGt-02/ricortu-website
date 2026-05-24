@@ -34,7 +34,17 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
     ["s2Title", "s2Text"],
     ["s3Title", "s3Text"],
     ["s4Title", "s4Text"],
-    ["s5Title", "s5Text"]
+    ["s5Title", "s5Text"],
+    ["s6Title", "s6Text"],
+    ["s7Title", "s7Text"],
+    ["s8Title", "s8Text"],
+    ["s9Title", "s9Text"],
+    ["s10Title", "s10Text"],
+    ["s11Title", "s11Text"],
+    ["s12Title", "s12Text"],
+    ["s13Title", "s13Text"],
+    ["s14Title", "s14Text"],
+    ["s15Title", "s15Text"]
   ] as const;
 
   return (
@@ -43,6 +53,14 @@ export default async function PrivacyPage({ params }: PrivacyPageProps) {
         <p className="museum-label text-gold">{t("label")}</p>
         <h1 className="page-title">{t("title")}</h1>
         <p className="page-copy">{t("intro")}</p>
+        <div className="mt-8 grid max-w-2xl gap-3 text-sm text-graphite/62 sm:grid-cols-2">
+          <p className="border-t border-graphite/12 pt-3">
+            {t("effectiveDate")}
+          </p>
+          <p className="border-t border-graphite/12 pt-3">
+            {t("lastUpdated")}
+          </p>
+        </div>
       </section>
       <section className="px-5 pb-24 sm:px-8">
         <div className="mx-auto max-w-4xl space-y-8">
