@@ -68,8 +68,14 @@ export function Header({ labels, locale }: HeaderProps) {
           {item.label}
         </Link>
       ))}
-        <LanguageSwitcher label={labels.language} locale={locale} />
       </nav>
+      <div className="mx-auto max-w-7xl px-5 pb-5 md:hidden">
+        <LanguageSwitcher
+          label={labels.language}
+          locale={locale}
+          variant="mobile"
+        />
+      </div>
     </header>
   );
 }

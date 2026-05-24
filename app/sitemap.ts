@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site";
 
-const routes = ["", "privacy", "terms"];
+const routes = ["", "privacy", "terms", "delete-account"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>

@@ -6,7 +6,8 @@ export const siteConfig = {
   url: "https://ricortu.app",
   description:
     "RICORTU is a private travel memory app for collecting visited cities, countries, and future destinations in a personal map of your life.",
-  email: "hello@ricortu.com"
+  email: "hello@ricortu.com",
+  supportEmail: "support@ricortu.app"
 };
 
 type MetadataOptions = {

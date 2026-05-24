@@ -5,7 +5,9 @@
     "privacyTitle": "Privacy Policy | RICORTU",
     "privacyDescription": "Read how RICORTU protects private travel memories, saved places, and personal atlas data.",
     "termsTitle": "Terms of Use | RICORTU",
-    "termsDescription": "Read the RICORTU terms for using a private travel atlas and travel memory app."
+    "termsDescription": "Read the RICORTU terms for using a private travel atlas and travel memory app.",
+    "deleteTitle": "Delete your RICORTU account and data",
+    "deleteDescription": "Request deletion of your RICORTU account, cloud data, synced travel memories, device identifiers, and related feedback records."
   },
   "nav": {
     "product": "Product",
@@ -96,6 +98,28 @@
     "s4Text": "Early product concepts and waitlist features may change as the app develops.",
     "s5Title": "Contact",
     "s5Text": "Questions about these terms can be sent to hello@ricortu.com."
+  },
+  "deleteAccount": {
+    "label": "Data rights",
+    "title": "Delete your RICORTU account and data",
+    "intro": "You can request deletion of your RICORTU account and cloud data at any time.",
+    "includedTitle": "What can be deleted",
+    "included1": "Your Supabase account and account email.",
+    "included2": "Cloud-synced cities, travel dates, notes, photo metadata, and device identifier.",
+    "included3": "Feedback records that can be associated with your account or device ID.",
+    "included4": "If cloud photo sync is enabled in the future, uploaded photo files are included as well.",
+    "notIncludedTitle": "What is not deleted from our servers",
+    "notIncluded1": "Data stored only in the local SQLite database on your phone. To remove local-only data, uninstall the app or clear app data from your device settings.",
+    "notIncluded2": "Images, exports, or share cards that you already saved or shared somewhere outside RICORTU.",
+    "requestTitle": "How to request deletion",
+    "requestText": "Email support@ricortu.app with the subject line Delete my RICORTU account. Include the email address used for your RICORTU account. If you used RICORTU without signing in, provide the device ID from Settings or mention that your archive was local-only.",
+    "timeline": "We will process deletion requests within 30 days.",
+    "cta": "Email deletion request",
+    "faqTitle": "FAQ",
+    "faqLocalQ": "What happens to local data?",
+    "faqLocalA": "Photos and archive data stored only on your device are not uploaded to RICORTU. Delete the app or clear its app data to remove local-only data.",
+    "faqSyncedQ": "What happens to synced data?",
+    "faqSyncedA": "Cloud-synced account data, cities, dates, notes, metadata, device identifiers, and associated feedback records are deleted after we verify and process your request."
   },
   "footer": {
     "text": "A private atlas for the cities, countries, and memories that became part of your life.",

@@ -5,7 +5,9 @@
     "privacyTitle": "Política de privacidad | RICORTU",
     "privacyDescription": "Lee cómo RICORTU protege recuerdos de viaje privados, lugares guardados y datos de tu atlas personal.",
     "termsTitle": "Términos de uso | RICORTU",
-    "termsDescription": "Lee los términos de RICORTU para usar un atlas privado y una app de recuerdos de viaje."
+    "termsDescription": "Lee los términos de RICORTU para usar un atlas privado y una app de recuerdos de viaje.",
+    "deleteTitle": "Eliminar tu cuenta y datos de RICORTU",
+    "deleteDescription": "Solicita la eliminación de tu cuenta de RICORTU, datos en la nube, recuerdos sincronizados, identificadores de dispositivo y feedback relacionado."
   },
   "nav": {
     "product": "Producto",
@@ -96,6 +98,28 @@
     "s4Text": "Los conceptos iniciales del producto y funciones de lista de espera pueden cambiar durante el desarrollo.",
     "s5Title": "Contacto",
     "s5Text": "Las preguntas sobre estos términos pueden enviarse a hello@ricortu.com."
+  },
+  "deleteAccount": {
+    "label": "Derechos sobre datos",
+    "title": "Eliminar tu cuenta y datos de RICORTU",
+    "intro": "Puedes solicitar la eliminación de tu cuenta de RICORTU y tus datos en la nube en cualquier momento.",
+    "includedTitle": "Qué puede eliminarse",
+    "included1": "Tu cuenta de Supabase y el email de la cuenta.",
+    "included2": "Ciudades sincronizadas en la nube, fechas de viaje, notas, metadata de fotos e identificador del dispositivo.",
+    "included3": "Registros de feedback asociados a tu cuenta o device ID.",
+    "included4": "Si en el futuro se activa la sincronización de fotos en la nube, también se incluirán los archivos subidos.",
+    "notIncludedTitle": "Qué no se elimina de nuestros servidores",
+    "notIncluded1": "Los datos guardados solo en la base SQLite local de tu teléfono. Para eliminar datos solo locales, desinstala la app o borra sus datos desde los ajustes del dispositivo.",
+    "notIncluded2": "Imágenes, exportaciones o tarjetas compartidas que ya hayas guardado o compartido fuera de RICORTU.",
+    "requestTitle": "Cómo solicitar la eliminación",
+    "requestText": "Envía un email a support@ricortu.app con el asunto Delete my RICORTU account. Incluye el email usado para tu cuenta RICORTU. Si usaste RICORTU sin iniciar sesión, proporciona el device ID desde Ajustes o indica que tu archivo era solo local.",
+    "timeline": "Procesaremos las solicitudes de eliminación en un plazo de 30 días.",
+    "cta": "Enviar solicitud de eliminación",
+    "faqTitle": "FAQ",
+    "faqLocalQ": "¿Qué ocurre con los datos locales?",
+    "faqLocalA": "Las fotos y datos de archivo guardados solo en tu dispositivo no se suben a RICORTU. Desinstala la app o borra sus datos para eliminar los datos solo locales.",
+    "faqSyncedQ": "¿Qué ocurre con los datos sincronizados?",
+    "faqSyncedA": "Los datos cloud de la cuenta, ciudades, fechas, notas, metadata, identificadores de dispositivo y feedback asociado se eliminan después de verificar y procesar tu solicitud."
   },
   "footer": {
     "text": "Un atlas privado para las ciudades, países y recuerdos que se volvieron parte de tu vida.",
