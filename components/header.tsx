@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { WaitlistLink } from "@/components/waitlist-link";
 import { Link, type Locale } from "@/i18n/routing";
@@ -29,10 +30,21 @@ export function Header({ labels, locale }: HeaderProps) {
       <div className="mx-auto flex min-h-20 w-full max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link
           aria-label="RICORTU home"
-          className="font-serif text-[1.72rem] font-semibold tracking-[0.19em] text-graphite"
+          className="flex items-center gap-3 text-graphite"
           href="/"
         >
-          RICORTU
+          <Image
+            alt=""
+            aria-hidden="true"
+            className="size-10 rounded-full object-cover shadow-[0_10px_24px_rgba(42,54,63,0.12)]"
+            height={40}
+            priority
+            src="/ricortu-logo.png"
+            width={40}
+          />
+          <span className="font-serif text-[1.62rem] font-semibold tracking-[0.18em]">
+            RICORTU
+          </span>
         </Link>
         <nav
           aria-label="Primary navigation"

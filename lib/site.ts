@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "https://ricortu.app",
   description:
     "RICORTU is a private travel memory app for collecting visited cities, countries, and future destinations in a personal map of your life.",
-  email: "support@ricortu.app",
+  email: "privacy@ricortu.app",
   supportEmail: "support@ricortu.app"
 };
 
@@ -26,6 +26,10 @@ export function createMetadata({
   return {
     title,
     description,
+    icons: {
+      icon: "/ricortu-logo.png",
+      apple: "/ricortu-logo.png"
+    },
     alternates: {
       canonical
     },
@@ -73,6 +77,10 @@ export function createLocalizedMetadata({
   return {
     title,
     description,
+    icons: {
+      icon: "/ricortu-logo.png",
+      apple: "/ricortu-logo.png"
+    },
     alternates: {
       canonical,
       languages: {
