@@ -1,83 +1,53 @@
-const cityDots = [
-  "left-[18%] top-[32%]",
-  "left-[34%] top-[52%]",
-  "left-[58%] top-[28%]",
-  "left-[72%] top-[58%]",
-  "left-[46%] top-[70%]"
-];
+import Image from "next/image";
+import { getTranslations } from "next-intl/server";
+import countryMap from "@/resource/countyMap.jpg";
+import pointMap from "@/resource/pointMap.jpg";
+import memories from "@/resource/ricordiPage.jpg";
+import settings from "@/resource/settingPage.jpg";
+import stats from "@/resource/statusPage.jpg";
+import wishlist from "@/resource/wishListPage.jpg";
 
-export function AppPreview() {
+const screens = [
+  { image: countryMap, key: "countries" },
+  { image: pointMap, key: "places" },
+  { image: memories, key: "memories" },
+  { image: wishlist, key: "wishlist" },
+  { image: stats, key: "stats" },
+  { image: settings, key: "settings" }
+] as const;
+
+export async function AppPreview({ hero = false }: { hero?: boolean }) {
+  const t = await getTranslations("screenshots");
+  if (hero) {
+    return (
+      <figure className="relative mx-auto w-full max-w-[260px] lg:max-w-[280px]">
+        <Image src={pointMap} alt={t("placesAlt")} sizes="(min-width: 1024px) 280px, 260px" priority
+          className="h-auto w-full rounded-lg border border-graphite/15 shadow-[0_20px_50px_rgba(28,37,45,0.12)]" />
+        <figcaption className="mt-4 text-center text-xs leading-5 text-graphite/70">{t("note")}</figcaption>
+      </figure>
+    );
+  }
   return (
-    <figure
-      aria-label="RICORTU app preview with map, city detail, wishlist, stats, and share card mockups"
-      className="relative overflow-hidden rounded-[1.75rem] border border-graphite/10 bg-paper p-4 shadow-[0_24px_80px_rgba(28,37,45,0.11)] sm:p-6"
-    >
-      <div aria-hidden="true" className="absolute inset-0 map-grid opacity-70" />
-      <div className="relative grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
-        <div className="min-h-[420px] rounded-[1.25rem] border border-graphite/10 bg-ivory/80 p-5">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="museum-label">RICORTU</p>
-              <p className="mt-1 text-xs text-graphite/50">Private atlas</p>
-            </div>
-            <p className="rounded-full border border-graphite/10 bg-paper px-3 py-1 text-xs text-graphite/62">
-              2026
-            </p>
-          </div>
-          <div className="relative mt-8 h-72 rounded-2xl border border-slate/15 bg-bluegrey/20">
-            <div aria-hidden="true" className="absolute inset-0 map-grid opacity-80" />
-            <div className="absolute left-4 top-4 rounded-full border border-graphite/10 bg-paper/80 px-3 py-1 text-xs text-graphite/62">
-              28 collected cities
-            </div>
-            {cityDots.map((position) => (
-              <span
-                aria-hidden="true"
-                className={`absolute h-3 w-3 rounded-full bg-slate shadow-[0_0_0_7px_rgba(114,137,154,0.14)] ${position}`}
-                key={position}
-              />
-            ))}
-            <div className="absolute bottom-4 right-4 rounded-xl border border-graphite/10 bg-paper/85 px-3 py-2 text-right text-xs text-graphite/62">
-              <p className="font-medium text-graphite">Lisbon, Portugal</p>
-              <p>Visited May 2024</p>
-            </div>
-          </div>
-          <div className="mt-6 grid grid-cols-3 gap-3">
-            {["28 cities", "11 countries", "4 saved"].map((item) => (
-              <div
-                className="rounded-xl border border-graphite/10 bg-white/55 px-3 py-4 text-center text-sm text-graphite/70"
-                key={item}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid gap-4">
-          <PreviewCard label="City detail" title="Lisbon" text="Portugal · May 2024 · First evening by the river." />
-          <PreviewCard label="Wishlist" title="Kyoto" text="Japan · Saved for spring light." />
-          <PreviewCard label="Stats" title="47%" text="Europe slowly lit · 11 countries collected." />
-          <PreviewCard label="Share card" title="My atlas" text="A quiet export, only when you choose." />
-        </div>
+    <div>
+      <p className="mb-8 max-w-2xl text-sm leading-6 text-graphite/70">{t("note")}</p>
+      <div
+        aria-labelledby="preview-title"
+        className="grid auto-cols-[min(78vw,300px)] grid-flow-col gap-x-6 gap-y-14 overflow-x-auto pb-5 snap-x snap-mandatory sm:grid-flow-row sm:grid-cols-2 sm:auto-cols-auto sm:gap-x-10 sm:overflow-visible lg:grid-cols-3"
+        role="region"
+        tabIndex={0}
+      >
+        {screens.map(({ image, key }, index) => (
+          <figure className="mx-auto w-full max-w-[300px] snap-start" key={key}>
+            <Image src={image} alt={t(`${key}Alt`)} sizes="(min-width: 640px) 300px, 280px"
+              className="h-auto w-full rounded-lg border border-graphite/15" />
+            <figcaption className="mt-5 border-t border-graphite/15 pt-4">
+              <p className="text-xs text-graphite/60">0{index + 1}</p>
+              <h3 className="mt-2 font-serif text-2xl">{t(key)}</h3>
+              <p className="mt-2 text-sm leading-6 text-graphite/75">{t(`${key}Text`)}</p>
+            </figcaption>
+          </figure>
+        ))}
       </div>
-    </figure>
-  );
-}
-
-function PreviewCard({
-  label,
-  title,
-  text
-}: {
-  label: string;
-  title: string;
-  text: string;
-}) {
-  return (
-    <div className="rounded-2xl border border-graphite/10 bg-ivory/85 p-5">
-      <p className="museum-label">{label}</p>
-      <p className="mt-5 font-serif text-3xl text-graphite">{title}</p>
-      <p className="mt-2 text-sm leading-6 text-graphite/65">{text}</p>
     </div>
   );
 }

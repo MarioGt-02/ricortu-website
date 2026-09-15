@@ -5,6 +5,8 @@ type FooterProps = {
   locale: Locale;
   labels: {
     contact: string;
+    support: string;
+    deleteAccount: string;
     privacy: string;
     terms: string;
     text: string;
@@ -13,8 +15,10 @@ type FooterProps = {
 
 export function Footer({ labels }: FooterProps) {
   const footerLinks = [
+    { href: "/support", label: labels.support },
     { href: "/privacy", label: labels.privacy },
-    { href: "/terms", label: labels.terms }
+    { href: "/terms", label: labels.terms },
+    { href: "/delete-account", label: labels.deleteAccount }
   ];
 
   return (
@@ -34,7 +38,7 @@ export function Footer({ labels }: FooterProps) {
               {item.label}
             </Link>
           ))}
-          <a className="hover:text-graphite" href={`mailto:${siteConfig.email}`}>
+          <a className="hover:text-graphite" href={`mailto:${siteConfig.supportEmail}`}>
             {labels.contact}
           </a>
         </div>

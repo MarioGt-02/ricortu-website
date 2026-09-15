@@ -34,7 +34,14 @@ export default async function TermsPage({ params }: TermsPageProps) {
     ["s2Title", "s2Text"],
     ["s3Title", "s3Text"],
     ["s4Title", "s4Text"],
-    ["s5Title", "s5Text"]
+    ["s5Title", "s5Text"],
+    ["s6Title", "s6Text"],
+    ["s7Title", "s7Text"],
+    ["s8Title", "s8Text"],
+    ["s10Title", "s10Text"],
+    ["s11Title", "s11Text"],
+    ["s12Title", "s12Text"],
+    ["s9Title", "s9Text"]
   ] as const;
 
   return (
@@ -43,6 +50,7 @@ export default async function TermsPage({ params }: TermsPageProps) {
         <p className="museum-label text-gold">{t("label")}</p>
         <h1 className="page-title">{t("title")}</h1>
         <p className="page-copy">{t("intro")}</p>
+        <p className="mt-6 text-sm text-graphite/70">{t("lastUpdated")}</p>
       </section>
       <section className="px-5 pb-24 sm:px-8">
         <div className="mx-auto max-w-4xl space-y-8">

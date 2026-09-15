@@ -23,11 +23,11 @@ export function Header({ labels, locale }: HeaderProps) {
   ];
 
   return (
-    <header className="border-b border-graphite/10 bg-ivory/90 backdrop-blur">
+    <header className="relative z-50 border-b border-graphite/10 bg-ivory/90 backdrop-blur">
       <a className="skip-link" href="#main-content">
         {labels.skip}
       </a>
-      <div className="mx-auto flex min-h-20 w-full max-w-7xl items-center justify-between px-5 sm:px-8">
+      <div className="mx-auto flex min-h-20 w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-3 sm:px-8">
         <Link
           aria-label="RICORTU home"
           className="flex items-center gap-3 text-graphite"
@@ -42,7 +42,7 @@ export function Header({ labels, locale }: HeaderProps) {
             src="/ricortu-logo.png"
             width={40}
           />
-          <span className="font-serif text-[1.62rem] font-semibold tracking-[0.18em]">
+          <span className="font-serif text-xl font-semibold tracking-[0.12em] sm:text-[1.62rem]">
             RICORTU
           </span>
         </Link>
@@ -81,13 +81,14 @@ export function Header({ labels, locale }: HeaderProps) {
         </Link>
       ))}
       </nav>
-      <div className="mx-auto max-w-7xl px-5 pb-5 md:hidden">
+      <details className="mx-auto max-w-7xl px-5 pb-5 md:hidden">
+        <summary className="cursor-pointer py-2 text-sm text-graphite/75">{labels.language}</summary>
         <LanguageSwitcher
           label={labels.language}
           locale={locale}
           variant="mobile"
         />
-      </div>
+      </details>
     </header>
   );
 }

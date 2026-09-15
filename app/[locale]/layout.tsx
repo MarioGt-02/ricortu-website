@@ -86,6 +86,8 @@ export default async function LocaleLayout({
           <Footer
             labels={{
               contact: footer("contact"),
+              support: footer("support"),
+              deleteAccount: footer("deleteAccount"),
               privacy: footer("privacy"),
               terms: footer("terms"),
               text: footer("text")

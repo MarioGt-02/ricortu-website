@@ -135,10 +135,5 @@ export const softwareJsonLd = {
   name: siteConfig.name,
   applicationCategory: "LifestyleApplication",
   operatingSystem: "iOS, Android",
-  description: siteConfig.description,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD"
-  }
+  description: siteConfig.description
 };

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AppPreview } from "@/components/app-preview";
+import { Faq } from "@/components/faq";
 import { WaitlistForm } from "@/components/waitlist-form";
 import { WaitlistLink } from "@/components/waitlist-link";
 import { Link, locales, type Locale } from "@/i18n/routing";
@@ -35,6 +36,7 @@ export default async function Home({ params }: HomePageProps) {
 
   const t = await getTranslations("home");
   const waitlist = await getTranslations("waitlist");
+  const footer = await getTranslations("footer");
   const values = [
     ["value1Title", "value1Text"],
     ["value2Title", "value2Text"],
@@ -73,12 +75,12 @@ export default async function Home({ params }: HomePageProps) {
               <WaitlistLink className="button-primary button-hero" href={`/${locale}#waitlist`}>
                 {t("cta")}
               </WaitlistLink>
-              <Link className="button-secondary" href="/">
+              <a className="button-secondary" href="#preview">
                 {t("secondaryCta")}
-              </Link>
+              </a>
             </div>
           </div>
-          <AppPreview />
+          <AppPreview hero />
         </div>
       </section>
 
@@ -168,6 +170,8 @@ export default async function Home({ params }: HomePageProps) {
             {t("seoTitle")}
           </h2>
           <p className="section-copy mt-6">{t("seoText")}</p>
+          <div className="mt-10"><Faq compact /></div>
+          <Link className="mt-6 inline-block underline underline-offset-4" href="/support">{t("supportLink")}</Link>
         </div>
       </section>
 
@@ -189,6 +193,7 @@ export default async function Home({ params }: HomePageProps) {
               error: waitlist("error"),
               placeholder: waitlist("placeholder"),
               privacy: waitlist("privacy"),
+              privacyLink: footer("privacy"),
               submit: waitlist("submit"),
               submitting: waitlist("submitting"),
               success: waitlist("success")

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Link } from "@/i18n/routing";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -10,6 +11,7 @@ type WaitlistFormProps = {
     error: string;
     placeholder: string;
     privacy: string;
+    privacyLink: string;
     submit: string;
     submitting: string;
     success: string;
@@ -63,7 +65,8 @@ export function WaitlistForm({ labels }: WaitlistFormProps) {
         </label>
         <input
           autoComplete="email"
-          className="min-h-12 flex-1 rounded-full border border-white/20 bg-white/10 px-5 text-ivory placeholder:text-ivory/55 focus:outline-none focus-visible:ring-2 focus-visible:ring-bluegrey"
+          aria-describedby="waitlist-privacy"
+          className="min-h-12 min-w-0 flex-1 rounded-full border border-white/20 bg-white/10 px-5 text-ivory placeholder:text-ivory/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-bluegrey"
           id="waitlist-email"
           name="email"
           onChange={(event) => setEmail(event.target.value)}
@@ -76,8 +79,9 @@ export function WaitlistForm({ labels }: WaitlistFormProps) {
           {isSubmitting ? labels.submitting : labels.submit}
         </button>
       </form>
-      <p className="mt-4 text-sm leading-6 text-ivory/60">
-        {labels.privacy}
+      <p className="mt-4 text-sm leading-6 text-ivory/85" id="waitlist-privacy">
+        {labels.privacy}{" "}
+        <Link className="underline underline-offset-4" href="/privacy">{labels.privacyLink}</Link>
       </p>
       <div aria-live="polite" className="mt-4 min-h-6">
         {message ? (

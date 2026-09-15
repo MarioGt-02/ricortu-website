@@ -32,7 +32,7 @@ export default async function DeleteAccountPage({
   setRequestLocale(locale);
   const t = await getTranslations("deleteAccount");
   const mailto = `mailto:${siteConfig.supportEmail}?subject=${encodeURIComponent(
-    "Delete my RICORTU account"
+    "Delete my RICORTU data"
   )}`;
 
   return (
