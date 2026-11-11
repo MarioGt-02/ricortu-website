@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ricortu.app",
+      "sha256_cert_fingerprints": [
+        "96:8E:72:45:9A:91:4A:AD:DC:AB:3D:EB:F3:8F:39:0E:D9:C5:76:5F:C5:66:71:76:9E:FA:DD:5A:CB:A7:D0:99"
+      ]
+    }
+  }
+]
